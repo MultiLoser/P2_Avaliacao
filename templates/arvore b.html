@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Estrutura de Dados</a>
+        <div class="d-flex justify-content-center">
+            <ul class="nav justify-content: space-between">
+                <!-- <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore1">Árvores B (B-Tree)</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore2">Árvores B+</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore3">Árvores B*</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore4">Árvores Vermelho e Preto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+      
+</head>
+<body>
+    <div class="container w-75">
+        <div class="d-flex justify-content-center pt-4"><h1>Árvore B</h1></div>
+        <div class="d-flex justify-content-center pt-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/B-tree-definition.png/400px-B-tree-definition.png" class="img-fluid" alt="...">
+        </div>
+        <div class="d-flex justify-content-center pt-2"><p>Árvores B são uma generalização das árvores binária de busca, pois cada nó de uma árvore binária armazena uma única chave de busca, enquanto as árvores B armazenam um número maior do que um de chaves de busca em cada nó, ou no termo mais usual para essa árvore, em cada página. Como a ideia principal das árvores B é trabalhar com dispositivos de memória secundária, quanto menos acessos a disco a estrutura de dados proporcionar, melhor será o desempenho do sistema na operação de busca sobre os dados manipulados.</p></div>
+        <div class="d-flex justify-content-center pt-4"><h3>Definição</h3></div>
+        <div class="d-flex justify-content-center pt-2"><p>Para definir uma árvore B devemos esclarecer os conceitos de ordem e página folha de acordo com cada autor Bayer e McCreight, Comer, dentre outros, definem a ordem como sendo o número mínimo de chaves que uma página pode conter, ou seja, com exceção da raiz todas devem conter esse número mínimo de chaves, mas essa definição pode causar ambiguidades quando se quer armazenar um número máximo ímpar de chaves. Por exemplo, se uma árvore B é de ordem 3, uma página estará cheia quando tiver 6 ou 7 chaves? Ou ainda, se quisermos armazenar no máximo 7 chaves em cada página qual será a ordem da árvore, uma vez que, o mínimo de chaves é k e o máximo 2k?<br>
+            <br>Knuth propôs que a ordem de uma árvore B fosse o número máximo de páginas filhas que toda página pode conter. Dessa forma, o número máximo de chaves por página ficou estabelecido como a ordem menos um.<br>
+            <br>O termo página folha também é inconsistente, pois é referenciado diferentemente por vários autores. Bayer e McCreight referem-se a estas como as páginas mais distantes da raiz, ou aquelas que contém chaves no nível mais baixo da árvore. Já Knuth define o termo como as páginas que estão abaixo do último nível da árvore, ou seja, páginas que não contém nenhuma chave.
+        </p></div>
+        <div class="d-flex justify-content-center pt-4"><h3>Exemplo de Utilização</h3></div>
+        <div class="d-flex justify-content-center pt-2"><p>Algoritimo de Busca</p></div>
+        <div class="d-flex justify-content-center pt-2">
+            <pre style="background-color: lightgray;" class="p-3 rounded border border-secondary">
+            <code style="color:black;" class="p-4">
+Busca(k, ponteiroRaiz)
+    {
+        se(ponteiroRaiz == -1)
+        {
+            return (chave nao encontrada)
+        }
+        
+        senao
+        {
+            carrega em memoria primaria pagina apontado por ponteiroRaiz
+            procura k na pagina carregada
+            
+            se(k foi encontrada)
+            {
+                return (chave encontrada)
+            }
+            senao
+            {
+                ponteiro = ponteiro para a próxima página da possível ocorrência de k
+                return (Busca (k, ponteiro))
+            }
+        }
+    }
+            </code>
+        </pre></div>
+        <div class="d-flex justify-content-center pt-4"><h3>Vídeo demonstrando a execução</h3></div>
+        <div class="d-flex justify-content-center pt-2"><p><iframe width="1280" height="720" src="https://www.youtube.com/embed/38RM8_VMIcI" title="Aula 10: Árvore B" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p></div>
+    </div>
+</body>
+</html>

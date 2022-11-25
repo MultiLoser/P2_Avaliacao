@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Estrutura de Dados</a>
+        <div class="d-flex justify-content-center">
+            <ul class="nav justify-content: space-between">
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore1">Árvores B (B-Tree)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore2">Árvores B+</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore3">Árvores B*</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/arvore4">Árvores Vermelho e Preto</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+      
+</head>
+<body>
+    <div class="container w-75">
+        <div class="d-flex justify-content-center pt-4"><h1>Árvore Vermelho e Preta</h1></div>
+        <div class="d-flex justify-content-center pt-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/500px-Red-black_tree_example.svg.png" class="img-fluid" alt="...">
+        </div>
+        <div class="d-flex justify-content-center pt-4"><h3>Definição</h3></div>
+        <div class="d-flex justify-content-center pt-2"><p>Uma árvore vermelho-preto é uma árvore de busca binária que contém uma informação extra por nó, que é sua cor, que pode ser vermelha ou preta. Na implementação, cada nó possui os atributos cor, chave, esquerda, direita e pai. Se um filho de um nó ou seu pai não existe, o ponteiro correspondente aponta para uma variável sentinela, chamada “nil”. A árvore vermelho-preto deve satisfazer as seguintes propriedades:<br>
+            1. Todo nó da árvore é vermelho ou preto.<br>
+            2. O nó raiz é preto.<br>
+            3. Toda folha (nil) é preta.<br>
+            4. Se um nó é vermelho, então seus filhos são pretos.<br>
+            5. Para cada nó, todos os caminhos de um nó até seus descendentes possuem o mesmo número de nós pretos.</p></div>
+        <div class="d-flex justify-content-center pt-2"><p>Uma árvore vermelho-preto é um tipo de árvore de busca binária com equilíbrio automático, onde cada nó tem um bit extra, e esse bit é frequentemente interpretado como a cor (vermelho ou preto). Essas cores são usadas para garantir que a árvore permaneça equilibrada durante as inserções e exclusões. Embora o equilíbrio da árvore não seja perfeito, é bom o suficiente para reduzir o tempo de busca e mantê-lo em torno do tempo O (log n), onde n é o número total de elementos na árvore. Esta árvore foi inventada em 1972 por Rudolf Bayer. <br>
+            Deve-se notar que, como cada nó requer apenas 1 bit de espaço para armazenar as informações de cor, esses tipos de árvores mostram pegada de memória idêntica à árvore de pesquisa binária clássica (sem cor).</p></div>
+            </p></div>
+
+        <div class="d-flex justify-content-center pt-4"><h3>Exemplo de Utilização</h3></div>
+        <div class="d-flex justify-content-center pt-2"><p>
+            <pre style="background-color: lightgray;" class="p-3 rounded border border-secondary">
+            <code style="color:black;" class="p-4">
+                public  class RBElement<T extends Comparable<T>> {
+	
+                    enum Color {
+                        RED, BLACK;
+                    }
+                    
+                    protected Color color = Color.BLACK;
+                    protected RBElement<T> p;
+                    protected RBElement<T> left;
+                    protected RBElement<T> right;
+                    protected T key;
+                    
+                    public RBElement() {
+                    }
+                    
+                    public RBElement(T z) {
+                        key = z;
+                    }
+                }
+            </code>
+            </pre>
+        </p></div>
+        
+        <div class="d-flex justify-content-center pt-4"><h3>Vídeo demonstrando a execução</h3></div>
+        <div class="d-flex justify-content-center pt-2"><p><iframe width="1280" height="720" src="https://www.youtube.com/embed/OkGkEu5NsCs" title="Arvores Rubro negras insercao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p></div>
+    </div>
+</body>
+</html>
