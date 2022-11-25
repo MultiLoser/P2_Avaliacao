@@ -16,7 +16,7 @@ def arvore2():
 
 @app.route('/arvore3')
 def arvore3():
-    return render_template('arvore b*.html')
+    return render_template('arvore b_.html')
 
 @app.route('/arvore4')
 def arvore4():
